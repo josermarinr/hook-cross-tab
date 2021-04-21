@@ -27,8 +27,20 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+
     - name: Run the tests
       run: npm test
 
     - name: Build
       run: npm run build
+    
+    - name: Run the tests and generate coverage report
+      run: npm test -- --coverage
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ 307e8309-b22b-4255-8749-95211e1d692d }}
