@@ -37,12 +37,11 @@ jobs:
     - name: Build
       run: npm run build
     
-    - name: Run the tests and generate coverage report
-      run: npm test --ci --coverage
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+    - uses: actions/checkout@master
+    - uses: codecov/codecov-action@v1
       with:
-        token: ${{ 307e8309-b22b-4255-8749-95211e1d692d }}
+        token: ${{ secrets.CODECOV_TOKEN }} 
+        fail_ci_if_error: true 
+        verbose: true 
 
       
