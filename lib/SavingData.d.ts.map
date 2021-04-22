@@ -1,1 +1,1 @@
-{"version":3,"file":"SavingData.d.ts","sourceRoot":"","sources":["../src/SavingData.ts"],"names":[],"mappings":"AAAA,OAAO,KAAoB,MAAM,OAAO,CAAA;AAExC,eAAO,MAAM,UAAU,iBACP,GAAG,YACP,MAAM,sBACI,GAAG,KAAG,IAAI,SACvB,GAAG,cACE,MAAM,gBAAgB,CAAC,OAAO,CAAC,SAgBR,CAAC"}
+{"version":3,"file":"savingData.d.ts","sourceRoot":"","sources":["../src/savingData.ts"],"names":[],"mappings":"AAAA,OAAO,KAAoB,MAAM,OAAO,CAAA;AAExC,eAAO,MAAM,UAAU,iBACP,GAAG,YACP,MAAM,sBACI,GAAG,KAAG,IAAI,SACvB,GAAG,cACE,MAAM,gBAAgB,CAAC,OAAO,CAAC,SAgBR,CAAC"}
