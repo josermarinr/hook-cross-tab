@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 
-export const savingData = (
+export const SavingData = (
     defaultValue: any,
     stateKey: string,
     setState: (element: any) => void,
     state: any,
     NewSession: React.MutableRefObject<boolean>
-) =>
+) =>{
     useEffect(() => {
         if (NewSession.current) {
             const currentState = localStorage.getItem(stateKey);
@@ -17,7 +17,11 @@ export const savingData = (
         try {
             saveData(stateKey, state);
         } catch (error) {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state, stateKey, defaultValue]);
+
+    return
+}
 
 
 function newState(currentState: string | null, setState: (element: any) => void, defaultValue: any) {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export const eventListener = (
+export const EventListener = (
     stateKey: string,
     setState: (element: any) => void
 ) =>

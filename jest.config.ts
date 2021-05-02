@@ -2,13 +2,9 @@ import type {Config} from '@jest/types';
 
 const config: Config.InitialOptions = {
     verbose: true,
-    // preset: 'ts-jest',
-    // transform: {
-    //     '^.+\\.tsx?$': 'babel-jest',
-    // },
-    preset: 'jest-puppeteer',
+    preset: 'ts-jest',
     transform: {
-            '^.+\\.tsx?$': "ts-jest",
-    }
+        '^.+\\.tsx?$': 'babel-jest',
+    },
   };
   export default config;

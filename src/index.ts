@@ -1,18 +1,11 @@
-import { useState, useRef } from "react";
-import { eventListener } from "./eventListener";
-import { savingData } from "./savingData";
+import { BroadcastState } from "./Broadcast"
+import { LocalStorageState } from "./Localstorage"
 
-export function useCrossTabState(stateKey: string, defaultValue: any) {
-    const [state, setState] = useState(defaultValue);
-    const newSession = useRef(true);
-
-    if (state && defaultValue) {
-        savingData(defaultValue, stateKey, setState, state, newSession);
-    } else {
-        throw Error("do you have set a key and default value");
-    }
-
-    eventListener(stateKey, setState);
-
-    return [state, setState];
+interface UniversalStatePorps {
+    key: string,
+    initialState: any,
+    option: "local" | "broadcast"
+}
+export const UniversalState = ({key, initialState, option = "broadcast"}: UniversalStatePorps) => {
+    return option==="local"?LocalStorageState(key, initialState):BroadcastState(key, initialState)
 }
