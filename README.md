@@ -5,7 +5,7 @@
 
 
 # hook cros tab
-
+![demo](./README/demo.gif)
 ## Motivation
 
 This hook helps to share the status among many tabs, it is multipurpose,
@@ -32,3 +32,8 @@ example
         option: "local
     })
 ```
+
+i invite you to see the real implementation in
+[this repo](https://github.com/josermarinr/example-hook-cross-tab)
+
+***by J. MARIN :anchor:***
