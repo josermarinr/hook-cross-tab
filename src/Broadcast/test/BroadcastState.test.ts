@@ -1,10 +1,10 @@
 import { BroadcastState } from "../index"
 import {renderHook, act} from '@testing-library/react-hooks'
 
-test('should return the good state', () => {
+test('should return the good state', async() => {
     const key = 'hello'
     const initialValue = 44
-     const {result}  = renderHook(
+    const {result}  = renderHook(
          ()=>BroadcastState({initialValue: initialValue, stateKey:key}),
          {
              initialProps: {
@@ -14,5 +14,6 @@ test('should return the good state', () => {
          }
      )
 
-    expect(result.current[0]).toEqual(44)
+   await expect(result.current[0]).toEqual(44)
+
 })
