@@ -3,8 +3,11 @@ import { BroadcastChannel,  createLeaderElection } from "broadcast-channel";
 import { v4 as uuidv4 } from "uuid";
 import { EventListener } from "./EventListener";
 
-
-export function BroadcastState(stateKey: string, initialValue: any) {
+export interface BroadcastStateProps {
+    stateKey: string,
+    initialValue: any
+}
+export function BroadcastState({ stateKey, initialValue }: BroadcastStateProps) {
   const [state, setState] = useState(initialValue);
   const myTabID = uuidv4();
   // eslint-disable-next-line react-hooks/exhaustive-deps

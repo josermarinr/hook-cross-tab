@@ -5,7 +5,7 @@
 
 
 # hook cros tab
-![demo](./README/demo.gif)
+![demo](https://media.giphy.com/media/z5jkiPFINbVppEtymH/giphy.gif)
 ## Motivation
 
 This hook helps to share the status among many tabs, it is multipurpose,
@@ -26,10 +26,10 @@ third the option, it only accepts "local" for localstorage and "broadcast"
 
 example
 ```
-  const [todos, setTodos] = useCrossTabState({
-        key: "tareas",
-        initialState: [],
-        option: "local
+const [todos, setTodos] = useCrossTabState({
+    key: "tareas",
+    initialState: [],
+    option: "local"
     })
 ```
 

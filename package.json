@@ -1,29 +1,38 @@
 {
   "name": "hook-cross-tab",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "hook to share state between tabs",
   "main": "lib/index.js",
   "types": "lib",
   "scripts": {
     "build": "tsc -p .",
     "coverage": "codecov",
-    "test": "npm run test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/josermarinr/hook-cross-tab.git"
   },
   "keywords": [
-    "hook"
+    "hook",
+    "react",
+    "cross-tab",
+    "state",
+    "localStorage",
+    "broadcast",
+    "frontend",
+    "multiScreen"
   ],
   "author": "jose marin",
   "license": "MIT",
   "devDependencies": {
+    "@testing-library/react-hooks": "^5.1.2",
     "@types/jest": "^26.0.22",
     "@types/react": "^17.0.3",
     "@types/uuid": "^8.3.0",
     "codecov": "^3.8.1",
     "jest": "^26.6.0",
+    "react-test-renderer": "^16.14.0",
     "ts-jest": "^26.5.5",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
@@ -33,6 +42,10 @@
   },
   "homepage": "https://github.com/josermarinr/hook-cross-tab#readme",
   "dependencies": {
+    "@babel/plugin-syntax-flow": "^7.12.13",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-flow": "^7.13.13",
+    "@babel/preset-react": "^7.13.13",
     "broadcast-channel": "^3.5.3",
     "react": "^17.0.2"
   },

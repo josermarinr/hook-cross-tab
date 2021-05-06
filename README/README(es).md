@@ -1,6 +1,6 @@
 
 # hook cros tab
-![demo](./demo.gif)
+![demo](https://media.giphy.com/media/z5jkiPFINbVppEtymH/giphy.gif)
 ## Motivacion
 
 El objetivo de este hook es poder ayudar a controlar el state en varia pestañas de navegacion, es multiproposito
