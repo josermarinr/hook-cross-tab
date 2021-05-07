@@ -1,6 +1,6 @@
 name: CI/CD
 
-on: 
+on:
   push:
     branches:
       - 'prod'
@@ -36,10 +36,19 @@ jobs:
 
     - name: Build
       run: npm run build
-        
+
+    - name: 😊 Codecov action
+      uses: codecov/codecov-action@v1.5.0
+
+
     - name: Codecov
       uses: codecov/codecov-action@v1.4.1
       with:
-        token: ${{ secrets.CODECOV_TOKEN }} 
+        # Repository upload token - get it from codecov.io. Required only for private repositories
+        token: ${{ secrets.CODECOV_TOKEN }}
+        # Comma-separated list of files to upload
+        files: ./coverage/calculator/coverage-final.json,./coverage/coverage-test/coverage-final.json
+        file: ./coverage/coverage-final.json
 
-      
+
+
