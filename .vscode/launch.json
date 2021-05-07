@@ -1,0 +1,57 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "http://localhost:1410",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Run react",
+      "command": "npm start",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "name": "jest",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/frontend/node_modules/jest/bin/jest",
+      "args": ["--runInBand"],
+      "cwd": "${workspaceFolder}/frontend",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true
+    },
+    {
+      "name": "Test Debug",
+      "type": "node",
+      "request": "launch",
+      "env": { "CI": "true" },
+      "runtimeExecutable": "${workspaceRoot}/frontend/node_modules/.bin/jest",
+      "args": ["test", "--runInBand", "--no-cache"],
+      "cwd": "${workspaceRoot}/frontend",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Jest Debug watch mode",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceRoot}/frontend//node_modules/.bin/jest",
+      "args": ["test", "--runInBand", "--no-cache", "--watchAll"],
+      "cwd": "${workspaceRoot}/frontend/",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ],"compounds": [
+    {
+      "name": "react Debug",
+      "configurations": ["Launch Chrome", "Run react"]
+    }
+  ]
+}
