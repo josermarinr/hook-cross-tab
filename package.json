@@ -52,5 +52,9 @@
   "files": [
     "README.md",
     "LICENSE.MD"
-  ]
+  ],
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  }
 }
