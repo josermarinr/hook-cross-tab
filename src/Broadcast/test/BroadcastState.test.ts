@@ -4,8 +4,8 @@ import {renderHook, act} from '@testing-library/react-hooks'
 test('should return the good state', async () => {
     const key = 'hello'
     const initialValue = 44
-    const { result, wait, rerender }   = renderHook(
-         ()=>BroadcastState({initialValue: initialValue, stateKey:key}),
+    const { result }   = renderHook(
+         () => BroadcastState({initialValue: initialValue, stateKey:key}),
          {
              initialProps: {
                 initialValue: initialValue,
