@@ -1,2 +1,13 @@
 /example
 /node_modules
+
+
+coverage
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+Scanning
+
+.env
