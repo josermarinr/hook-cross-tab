@@ -1,6 +1,6 @@
 {
   "name": "hook-cross-tab",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "hook to share state between tabs",
   "main": "lib/index.js",
   "types": "lib",
