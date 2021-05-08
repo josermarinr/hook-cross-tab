@@ -4,6 +4,8 @@
 ![License](https://img.shields.io/github/license/dyarleniber/react-workflow-gh-actions)
 
 
+[Spanish Version](./README/README(es).md)
+
 # hook cros tab
 ![demo](https://media.giphy.com/media/z5jkiPFINbVppEtymH/giphy.gif)
 ## Motivation
@@ -26,11 +28,13 @@ third the option, it only accepts "local" for localstorage and "broadcast"
 
 example
 ```
-const [todos, setTodos] = useCrossTabState({
-    key: "tareas",
-    initialState: [],
-    option: "local"
-    })
+const [todos, setTodos] = useCrossTabState(
+    {
+        key: "tareas",
+        initialState: [],
+        option: "broadcast"
+    }
+)
 ```
 
 i invite you to see the real implementation in

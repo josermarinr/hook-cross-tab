@@ -22,11 +22,13 @@ y como tercera es la opcion, por los momentos acepta "local" para localStorage y
 
 ejemplo
 ```
-  const [todos, setTodos] = useCrossTabState({
+const [todos, setTodos] = useCrossTabState(
+    {
         key: "tareas",
         initialState: [],
-        option: "local
-    })
+        option: "broadcast"
+    }
+)
 ```
 
 the invito a ver la verdadera implementacion en el siguiete
