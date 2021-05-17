@@ -3,7 +3,7 @@ import React from "react";
 
 
 export const ComponentToTest = ( {data}:{data: any}) => {
-    const [state, setState] = BroadcastState({
+    const[ state, setState] = BroadcastState({
         initialValue: data,
         stateKey: "test",
     });
