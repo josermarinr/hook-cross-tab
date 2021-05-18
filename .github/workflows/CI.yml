@@ -32,7 +32,7 @@ jobs:
       run: npm run build
 
     - name: 🙉  Creating Repports
-      run: npm report-test
+      run: nyc npm run test -- --coverage
 
     - name: 😊 Codecov action
       uses: codecov/codecov-action@v1.5.0
