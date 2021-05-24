@@ -9,14 +9,17 @@ export const EventListener = (
     }, [stateKey, setState]);
 
 
-function readMessage(stateKey: string, setState: (element: any) => void) {
-    const onReceiveMessage = (e: any) => {
+export function readMessage(stateKey: string, setState: (element: any) => void) {
+    window.addEventListener("storage", onReceiveMessage(stateKey, setState));
+    return () => window.removeEventListener("storage", onReceiveMessage(stateKey, setState));
+}
+
+export function onReceiveMessage(stateKey: string, setState: (element: any) => void) {
+    return (e: any) => {
         const { key, newValue } = e;
         if (key === stateKey) {
             setState(JSON.parse(newValue));
         }
     };
-    window.addEventListener("storage", onReceiveMessage);
-    return () => window.removeEventListener("storage", onReceiveMessage);
 }
 
