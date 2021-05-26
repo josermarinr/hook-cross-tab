@@ -1,6 +1,6 @@
 {
   "name": "hook-cross-tab",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "hook to share state between tabs",
   "main": "lib/index.js",
   "types": "lib",
@@ -54,9 +54,5 @@
     "broadcast-channel": "^3.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  },
-  "files": [
-    "README.md",
-    "LICENSE.MD"
-  ]
+  }
 }
