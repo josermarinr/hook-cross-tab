@@ -7,5 +7,7 @@ interface UniversalStatePorps {
     option?: "local" | "broadcast"
 }
 export const UniversalState = ({key, initialState, option = "broadcast"}: UniversalStatePorps) => {
-    return option==="local"?LocalStorageState(key, initialState):BroadcastState({ stateKey: key, initialValue: initialState })
+    return option==="local"
+        ?LocalStorageState(key, initialState)
+        :BroadcastState({ stateKey: key, initialValue: initialState })
 }
