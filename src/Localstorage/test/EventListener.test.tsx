@@ -1,6 +1,4 @@
-import { EventListener, readMessage, setValue } from "../EventListener";
-import { renderHook } from "@testing-library/react-hooks";
-import { act } from 'react-test-renderer';
+import { EventListener, onReceiveMessage, readMessage } from "../EventListener";
 import { saveToStorage, localStorageMock} from "./setupTest"
 import React from "react";
 
@@ -60,39 +58,20 @@ describe(EventListener, () => {
        expect(window.localStorage.setItem).toHaveBeenCalledWith("otherKey", "hola a todo el mundo")
 
       });
-    // it('testing setupTest, should work', () => {
-    //     // Storage.prototype.setItem = jest.fn(()=> "hola")
-    //     // Storage.prototype.getItem = jest.fn(() => 'token');
 
-    //     localStorage.setItem("hola", "como estas")
-    //     localStorage.getItem.mockReturnValue
-    //     //localStorage["[[Target]]"]["Symbol(impl)"]._items["[[Entries]]"][0]
+      it('should have a good behavior in onReceiveMessage function', () => {
 
-    //     //expect(localStorage.setItem).toHaveBeenCalled();
-    //    // expect().toBe("como estas")
-    // })
-    // test("should return the good state", () => {
+        jest.spyOn(window, 'addEventListener').mockImplementationOnce((event, handler:any, options) => {
+          if(event === "storage"){
+              return {key: 'otherKey', data: 'hola'}
+          }
+        });
 
-    //     const key = "hello";
-    //     const setState = (element : any) => { return element };
-    //     const { result } = renderHook(
-    //         () => EventListener(key, setState),
-    //     );
+        let stateKey= "otherKey"
+        window.addEventListener('storage', onReceiveMessage(stateKey, setState))
 
-    //   // expect(result).toEqual("hello");
-    // });
+        expect(window.addEventListener).toBeCalledWith('storage', expect.any(Function));
 
-    // it('should return a new state', ()=>{
+      })
 
-    //     const key = "hello";
-    //     const setState = (element : any) => { return element };
-    //     const { result } = renderHook(
-    //         () => EventListener(key, setState)
-    //     );
-    //     // act(() => {
-    //     //     result.current[1]('hola')
-    //     // })
-
-    //     // expect(result.current[0]).toEqual('hola');
-    // })
 });
