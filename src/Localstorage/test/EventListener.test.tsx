@@ -1,11 +1,29 @@
 import { EventListener, onReceiveMessage, readMessage } from "../EventListener";
-import { saveToStorage, localStorageMock} from "./setupTest"
 import React from "react";
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useState: jest.fn(),
 }));
+
+let store: any = {};
+
+export const localStorageMock = {
+    getItem: jest.fn().mockImplementation(key => store[key] || null),
+    setItem: jest.fn().mockImplementation((key, value) => {
+        store[key] = value;
+    }),
+    clear: jest.fn().mockImplementation(() => {
+        store = {};
+    }),
+    removeItem: jest.fn().mockImplementation((key) => {
+        store[key] = undefined;
+    }),
+  };
+
+  export function saveToStorage(key:string, value: string) {
+    window.localStorage.setItem(key, value);
+  }
 
 describe(EventListener, () => {
     let events: any = {};
@@ -61,7 +79,7 @@ describe(EventListener, () => {
 
       it('should have a good behavior in onReceiveMessage function', () => {
 
-        jest.spyOn(window, 'addEventListener').mockImplementationOnce((event, handler:any, options) => {
+        jest.spyOn(window, 'addEventListener').mockImplementationOnce((event) => {
           if(event === "storage"){
               return {key: 'otherKey', data: 'hola'}
           }

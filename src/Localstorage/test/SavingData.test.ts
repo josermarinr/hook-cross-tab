@@ -1,9 +1,21 @@
 import { act, renderHook } from "@testing-library/react-hooks";
 import react from "react";
 import { saveData, SavingData } from "../SavingData";
-import { localStorageMock } from "./setupTest";
 
+let store: any = {};
 
+export const localStorageMock = {
+    getItem: jest.fn().mockImplementation(key => store[key] || null),
+    setItem: jest.fn().mockImplementation((key, value) => {
+        store[key] = value;
+    }),
+    clear: jest.fn().mockImplementation(() => {
+        store = {};
+    }),
+    removeItem: jest.fn().mockImplementation((key) => {
+        store[key] = undefined;
+    }),
+  };
 
 describe(SavingData, () => {
     let events: any = {};
