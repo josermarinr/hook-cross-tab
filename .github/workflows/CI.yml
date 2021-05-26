@@ -1,13 +1,7 @@
 name: CI/CD
 
-on:
-  push:
-    branches:
-      - 'prod'
-      - 'main'
-      - 'beta'
-      - 'alpha'
-  pull_request: {}
+on: [push, pull_request]
+
 jobs:
   main:
     # ignore all-contributors PRs
@@ -38,10 +32,12 @@ jobs:
       run: npm run build
 
     - name: 🙉  Creating Repports
-      run: npm run build
+      run: npm test -- --coverage -u
 
     - name: 😊 Codecov action
       uses: codecov/codecov-action@v1.5.0
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
 
 
 
